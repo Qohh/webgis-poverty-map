@@ -2,12 +2,7 @@
 header('Content-Type: application/json');
 require_once 'auth.php';
 require_admin_api();
-
-$koneksi = mysqli_connect("127.0.0.1", "root", "", "gis_kemiskinan", 3307);
-if (!$koneksi) {
-    echo json_encode(["status" => "error", "message" => mysqli_connect_error()]);
-    exit;
-}
+require_once 'config.php';
 
 $lat        = $_POST['lat']        ?? '';
 $lng        = $_POST['lng']        ?? '';

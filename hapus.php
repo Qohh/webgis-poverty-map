@@ -2,8 +2,7 @@
 header('Content-Type: application/json');
 require_once 'auth.php';
 require_admin_api();
-
-$koneksi = mysqli_connect("127.0.0.1", "root", "", "gis_kemiskinan", 3307);
+require_once 'config.php';
 
 $id = (int)($_POST['id'] ?? 0);
 if ($id == 0) {

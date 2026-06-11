@@ -1,13 +1,7 @@
 <?php
 header('Content-Type: application/json');
 require_once 'auth.php';
-// Semua boleh akses (admin, user login, maupun guest)
-
-$koneksi = mysqli_connect("127.0.0.1", "root", "", "gis_kemiskinan", 3307);
-if (!$koneksi) {
-    echo json_encode(["status" => "error", "message" => mysqli_connect_error()]);
-    exit;
-}
+require_once 'config.php';
 
 $result = mysqli_query($koneksi, "SELECT * FROM tempat_ibadah");
 $data = [];
