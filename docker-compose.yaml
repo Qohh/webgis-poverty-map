@@ -1,0 +1,22 @@
+services:
+  web:
+    build: .
+    ports:
+      - "80:80"
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.4
+    restart: always
+    environment:
+      MYSQL_DATABASE: gis_kemiskinan
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: password123
+      MYSQL_ROOT_PASSWORD: root123
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./gis_kemiskinan.sql:/docker-entrypoint-initdb.d/gis_kemiskinan.sql
+
+volumes:
+  mysql_data:
